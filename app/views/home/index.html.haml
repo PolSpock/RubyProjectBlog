@@ -12,7 +12,7 @@
           %span{class:"badge"}=post.category.name
       %p= post.content
       %hr
-  .col-xs-4
+  .col-xs-4{style: 'background-color: #f9f9f9;'}
     %h1{style: 'color: orange;'} Les catégories :
     - Category.listing.each do |category|
       %h3

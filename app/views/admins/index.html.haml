@@ -21,7 +21,7 @@
         = f.text_field :title, :class => 'form-control'
       .form-group
         = f.label :content, :class => 'form-label required'
-        = f.text_area :content, :class => 'materialize-textarea'
+        = f.text_area :content, :class => 'form-control materialize-textarea'
       .form-group
         = f.label :choose_category, "Catégorie", :class => 'form-label required'
         %select{name: 'post[category_id]', class: 'form-control'}
