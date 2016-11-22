@@ -1,0 +1,15 @@
+.row
+  %h1 Trie par catégorie
+.br
+.row
+  .col-xs-8
+    - @posts.each do |post|
+      %h2= post.title
+      %h3
+        %a{href: posts_path(category_id: post.category_id), class:'category'}
+          %span{class:"badge"}=post.category.name
+      %p= post.content
+      %hr
+.row
+  %button{class:'btn btn-primary pull-right'}
+    =link_to "Retour", root_path, style: 'color: white'

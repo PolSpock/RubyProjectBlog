@@ -1,0 +1,30 @@
+.row
+  %h1 Bienvenue dans l'espace admin
+.col-xs-8.col-xs-offset-2
+  %h2 Créer un nouvel acticle
+.col-xs-8.col-xs-offset-2.well
+  = form_for @post, multipart: true do |f|
+    - if @post.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@post.errors.count, "error")
+          prohibited this listing from being saved:
+        %ul
+          - @post.errors.full_messages.each do |message|
+            %li= message
+    .form-group
+      = f.label :author, :class => 'form-label required'
+      = f.text_field :author, :class => 'form-control'
+    .form-group
+      = f.label :title, :class => 'form-label required'
+      = f.text_field :title, :class => 'form-control'
+    .form-group
+      = f.label :content, :class => 'form-label required'
+      = f.text_area :content, :class => 'materialize-textarea'
+    .form-group
+      = f.label :choose_category, "Catégorie", :class => 'form-label required'
+      %select{name: 'post[category_id]', class: 'form-control'}
+        - Category.all.each do |cat|
+          %option{value: cat.id}= cat.name
+    .actions
+      = f.submit "Créer", :class => 'waves-effect waves-light btn'
